@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Evolution of GIS in Conservation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #e9e7da;
+    color: #1a1a1a;
+    padding: 2rem 1rem 4rem;
+  }
+  .tl-wrap { max-width: 760px; margin: 0 auto; }
+  .tl-header { text-align: center; margin-bottom: 2.5rem; }
+  .tl-header h1 { font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+  .tl-header p { font-size: 14px; color: #666; }
+  .tl-spine { position: relative; padding-left: 52px; }
+  .tl-line {
+    position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 2px; background: #ddd;
+  }
+  .tl-item {
+    position: relative; margin-bottom: 2.5rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .tl-item.visible { opacity: 1; transform: translateY(0); }
+  .tl-dot {
+    position: absolute; left: -40px; top: 18px;
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 2.5px solid; background: #e9e7da; z-index: 1;
+  }
+  .era1 { border-color: #1D9E75; }
+  .era2 { border-color: #378ADD; }
+  .era3 { border-color: #BA7517; }
+  .era4 { border-color: #7F77DD; }
+  .era5 { border-color: #D85A30; }
+  .tl-card {
+    background: #fff; border: 1px solid #e8e6e1;
+    border-radius: 12px; overflow: hidden;
+  }
+  .tl-card-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-bottom: 1px solid #f0ede8;
+  }
+  .tl-year {
+    font-size: 12px; font-weight: 600; padding: 3px 10px;
+    border-radius: 4px; white-space: nowrap;
+  }
+  .y1 { background: #E1F5EE; color: #0F6E56; }
+  .y2 { background: #E6F1FB; color: #185FA5; }
+  .y3 { background: #FAEEDA; color: #854F0B; }
+  .y4 { background: #EEEDFE; color: #534AB7; }
+  .y5 { background: #FAECE7; color: #993C1D; }
+  .tl-title { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+  .tl-card-body { display: flex; }
+  .tl-img-wrap {
+    width: 190px; flex-shrink: 0;
+    background: #dddbd0; overflow: hidden;
+    min-height: 130px; display: flex;
+    align-items: center; justify-content: center;
+  }
+  .tl-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tl-img-fallback {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; padding: 16px; text-align: center;
+    width: 100%; height: 100%;
+  }
+  .tl-img-fallback svg { opacity: 0.35; }
+  .tl-img-fallback span { font-size: 11px; color: #999; line-height: 1.4; }
+  .tl-text { flex: 1; padding: 14px 18px; }
+  .tl-text p { font-size: 13px; color: #444; line-height: 1.65; margin-bottom: 8px; }
+  .tl-text p:last-of-type { margin-bottom: 0; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .tl-tag {
+    font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    color: #666; background: #f5f4f0; border: 1px solid #e8e6e1;
+  }
+  .tl-cite { font-size: 11px; color: #999; margin-top: 10px; font-style: italic; }
+  .tl-connector {
+    display: flex; align-items: center; gap: 10px;
+    margin: -1rem 0 1rem; padding-left: 8px;
+  }
+  .tl-connector-line { flex: 1; height: 1px; background: #e8e6e1; }
+  .tl-connector-label { font-size: 11px; color: #aaa; white-space: nowrap; }
+
+  @media (max-width: 560px) {
+    .tl-card-body { flex-direction: column; }
+    .tl-img-wrap { width: 100%; height: 140px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tl-wrap">
+  <div class="tl-header">
+    <h1>The evolution of GIS in conservation</h1>
+    <p>From a Canadian land-use project to real-time global monitoring</p>
+  </div>
+
+  <div class="tl-spine">
+    <div class="tl-line"></div>
+
+    <!-- ERA 1 -->
+    <div class="tl-item" data-delay="0">
+      <div class="tl-dot era1"></div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <span class="tl-year y1">1964</span>
+          <span class="tl-title">The first GIS — Canada Geographic Information System</span>
+        </div>
+        <div class="tl-card-body">
+          <div class="tl-img-wrap">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Roger_Tomlinson.jpg/320px-Roger_Tomlinson.jpg"
+              alt="Roger Tomlinson, father of GIS"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tl-img-fallback" style="display:none">
+              <svg width="36" height="36" fill="none" stroke="#888" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              <span>Roger Tomlinson<br>Father of GIS</span>
+            </div>
+          </div>
+          <div class="tl-text">
+            <p>Roger Tomlinson built the Canada Geographic Information System (CGIS) — the first operational GIS ever created. Its original purpose was land-use planning for the Canadian government.</p>
+            <p>Conservation organizations used early GIS primarily for land classification and basic environmental data collection. Only large government agencies could afford access — but the concept of layering multiple spatial datasets to find landscape patterns was born here.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">CGIS</span>
+              <span class="tl-tag">Roger Tomlinson</span>
+              <span class="tl-tag">Land-use planning</span>
+              <span class="tl-tag">Spatial overlay</span>
+            </div>
+            <div class="tl-cite">Longley et al., 2015</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-connector">
+      <div class="tl-connector-line"></div>
+      <div class="tl-connector-label">two decades of computing growth</div>
+      <div class="tl-connector-line"></div>
+    </div>
+
+    <!-- ERA 2 -->
+    <div class="tl-item" data-delay="100">
+      <div class="tl-dot era2"></div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <span class="tl-year y2">1980s – 90s</span>
+          <span class="tl-title">ArcGIS + Landsat — conservation goes digital</span>
+        </div>
+        <div class="tl-card-body">
+          <div class="tl-img-wrap">
+            <img
+              src="https://landsat.gsfc.nasa.gov/wp-content/uploads/2021/12/Landsat_timeline_20211202_title.jpg"
+              alt="NASA Landsat satellite program timeline"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tl-img-fallback" style="display:none">
+              <svg width="36" height="36" fill="none" stroke="#888" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3m-4.22-7.78l-2.12 2.12M6.34 17.66l-2.12 2.12m14.14 0l-2.12-2.12M6.34 6.34L4.22 4.22"/></svg>
+              <span>NASA Landsat<br>1972 – present</span>
+            </div>
+          </div>
+          <div class="tl-text">
+            <p>Esri released ArcInfo and later ArcGIS, making spatial modeling accessible beyond governments. NASA's Landsat program opened its archive, enabling long-term environmental monitoring at regional and global scales.</p>
+            <p>Conservation organizations began analyzing habitat loss, forest depletion, and land fragmentation over time — not just mapping where things were, but tracking how they were changing year to year.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">ArcInfo → ArcGIS</span>
+              <span class="tl-tag">Esri / Dangermond</span>
+              <span class="tl-tag">NASA Landsat</span>
+              <span class="tl-tag">Habitat suitability modeling</span>
+            </div>
+            <div class="tl-cite">Wulder et al., 2012</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-connector">
+      <div class="tl-connector-line"></div>
+      <div class="tl-connector-label">internet era + open data movement</div>
+      <div class="tl-connector-line"></div>
+    </div>
+
+    <!-- ERA 3 -->
+    <div class="tl-item" data-delay="200">
+      <div class="tl-dot era3"></div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <span class="tl-year y3">2000s</span>
+          <span class="tl-title">Landscape scale — ecosystems and gap analysis</span>
+        </div>
+        <div class="tl-card-body">
+          <div class="tl-img-wrap">
+            <img
+              src="https://www.usgs.gov/media/images/national-land-cover-database"
+              alt="USGS National Land Cover Database"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tl-img-fallback" style="display:none">
+              <svg width="36" height="36" fill="none" stroke="#888" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              <span>USGS NLCD<br>National land cover</span>
+            </div>
+          </div>
+          <div class="tl-text">
+            <p>GIS expanded from parcel-level mapping to full landscape and ecosystem management. Gap analysis programs identified ecosystems underrepresented in protected area networks.</p>
+            <p>USGS published national land cover maps and elevation data. The World Database on Protected Areas (WDPA), maintained by IUCN and Protected Planet, enabled global-scale biodiversity planning for the first time.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">USGS NLCD</span>
+              <span class="tl-tag">Gap analysis</span>
+              <span class="tl-tag">IUCN / Protected Planet</span>
+              <span class="tl-tag">WDPA</span>
+            </div>
+            <div class="tl-cite">USGS, 2023 · UNEP-WCMC & IUCN, 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-connector">
+      <div class="tl-connector-line"></div>
+      <div class="tl-connector-label">smartphones + cloud computing</div>
+      <div class="tl-connector-line"></div>
+    </div>
+
+    <!-- ERA 4 -->
+    <div class="tl-item" data-delay="300">
+      <div class="tl-dot era4"></div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <span class="tl-year y4">2010s</span>
+          <span class="tl-title">Citizen science + open data — the iNaturalist era</span>
+        </div>
+        <div class="tl-card-body">
+          <div class="tl-img-wrap">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/INaturalist_logo.png/320px-INaturalist_logo.png"
+              alt="iNaturalist logo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tl-img-fallback" style="display:none">
+              <svg width="36" height="36" fill="none" stroke="#888" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <span>iNaturalist<br>Citizen science platform</span>
+            </div>
+          </div>
+          <div class="tl-text">
+            <p>Platforms like iNaturalist transformed biodiversity data collection. Anyone with a smartphone could contribute georeferenced species observations — generating spatially explicit datasets at scales no field survey could match alone.</p>
+            <p>When validated for research quality, citizen science data became a legitimate source for spatial analysis. Conservation GIS gained a new, continuously updated input layer tied directly to public engagement.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">iNaturalist</span>
+              <span class="tl-tag">Citizen science</span>
+              <span class="tl-tag">Open biodiversity data</span>
+              <span class="tl-tag">GBIF</span>
+            </div>
+            <div class="tl-cite">Campbell et al., 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-connector">
+      <div class="tl-connector-line"></div>
+      <div class="tl-connector-label">drones · LiDAR · machine learning</div>
+      <div class="tl-connector-line"></div>
+    </div>
+
+    <!-- ERA 5 -->
+    <div class="tl-item" data-delay="400">
+      <div class="tl-dot era5"></div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <span class="tl-year y5">Today</span>
+          <span class="tl-title">Real-time monitoring — drones, LiDAR, machine learning</span>
+        </div>
+        <div class="tl-card-body">
+          <div class="tl-img-wrap">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/DJI_Phantom_4_with_GoPro_-_Drone_festival_2015_%28Unsplash%29.jpg/320px-DJI_Phantom_4_with_GoPro_-_Drone_festival_2015_%28Unsplash%29.jpg"
+              alt="Conservation drone in flight"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tl-img-fallback" style="display:none">
+              <svg width="36" height="36" fill="none" stroke="#888" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0M5 5l3 3m8-3l-3 3m3 8l3 3M5 19l3-3"/><circle cx="5" cy="5" r="1.5"/><circle cx="19" cy="5" r="1.5"/><circle cx="19" cy="19" r="1.5"/><circle cx="5" cy="19" r="1.5"/></svg>
+              <span>Drones + LiDAR<br>Precision habitat mapping</span>
+            </div>
+          </div>
+          <div class="tl-text">
+            <p>Drone imagery, LiDAR point clouds, and machine learning classification now enable precision habitat mapping at centimeter resolution. Cloud platforms allow real-time data sharing between agencies worldwide.</p>
+            <p>Wildfire modeling, climate vulnerability assessments, biodiversity tracking, and ecosystem resilience planning all run on the same foundational concept Tomlinson introduced in 1964 — where things are, and how they're changing.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">Drone imagery</span>
+              <span class="tl-tag">LiDAR</span>
+              <span class="tl-tag">ML classification</span>
+              <span class="tl-tag">Real-time cloud sharing</span>
+              <span class="tl-tag">Climate modeling</span>
+            </div>
+            <div class="tl-cite">Turner et al., 2015</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.tl-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.delay || 0);
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  items.forEach(el => observer.observe(el));
+  setTimeout(() => items.forEach(el => el.classList.add('visible')), 1500);
+</script>
+
+</body>
+</html>
