@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#e9e7da;font-family:'Inter',sans-serif;color:#1a1a18;padding:1.5rem;}
+.card{background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.07);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.card-top{background:#2a7a50;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:12px;}
+.bee{font-size:28px;}
+.card-top-text h2{font-family:'Lora',serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:3px;}
+.card-top-text p{font-size:11px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;}
+.card-body{padding:1.2rem 1.5rem;}
+.stat-row{display:flex;gap:12px;margin-bottom:1rem;}
+.stat{flex:1;background:#f5f3ee;border-radius:8px;padding:10px 12px;text-align:center;}
+.stat-num{font-size:20px;font-weight:600;color:#2a7a50;font-family:'Lora',serif;}
+.stat-label{font-size:9px;color:#888;margin-top:2px;text-transform:uppercase;letter-spacing:0.08em;}
+.finding{margin-bottom:10px;}
+.finding-label{font-size:9px;font-weight:600;color:#2a7a50;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+.finding p{font-size:12px;color:#444;line-height:1.6;}
+.hotspots{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.hotspot-item{background:#f5f3ee;border-left:3px solid #2a7a50;border-radius:0 6px 6px 0;padding:7px 10px;font-size:11px;color:#333;display:flex;align-items:center;gap:8px;}
+.hotspot-item .dot{width:8px;height:8px;border-radius:50%;background:#2a7a50;flex-shrink:0;}
+.cite{font-size:9px;color:#bbb;font-style:italic;margin-top:12px;text-align:right;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-top">
+    <div class="bee">🐝</div>
+    <div class="card-top-text">
+      <h2>Honeybee Observation Hotspots</h2>
+      <p>Full Study Period 2014 to 2024 · San Gabriel Valley</p>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">6,370</div><div class="stat-label">Observations</div></div>
+      <div class="stat"><div class="stat-num">10</div><div class="stat-label">Years of data</div></div>
+      <div class="stat"><div class="stat-num">99%</div><div class="stat-label">Confidence clusters</div></div>
+    </div>
+    <div class="finding">
+      <div class="finding-label">What the map shows</div>
+      <p>Every statistically significant cluster aligns with a named managed green space. The eastern valley where development grew most has no significant clustering in either time period.</p>
+    </div>
+    <div class="hotspots">
+      <div class="hotspot-item"><div class="dot"></div>Arroyo Seco corridor and Eaton Canyon — Pasadena and Altadena</div>
+      <div class="hotspot-item"><div class="dot"></div>LA County Arboretum and Botanic Garden — Arcadia</div>
+      <div class="hotspot-item"><div class="dot"></div>California Botanic Garden — Claremont</div>
+    </div>
+    <div class="cite">Campbell et al., 2023</div>
+  </div>
+</div>
+</body>
+</html>
