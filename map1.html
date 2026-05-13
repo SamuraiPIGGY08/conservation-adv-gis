@@ -4,54 +4,148 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#e9e7da;font-family:'Inter',sans-serif;color:#1a1a18;padding:1.5rem;}
-.card{background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.07);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-.card-top{background:#2a7a50;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:12px;}
-.bee{font-size:28px;}
-.card-top-text h2{font-family:'Lora',serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:3px;}
-.card-top-text p{font-size:11px;color:rgba(255,255,255,0.7);letter-spacing:0.05em;}
-.card-body{padding:1.2rem 1.5rem;}
-.stat-row{display:flex;gap:12px;margin-bottom:1rem;}
-.stat{flex:1;background:#f5f3ee;border-radius:8px;padding:10px 12px;text-align:center;}
-.stat-num{font-size:20px;font-weight:600;color:#2a7a50;font-family:'Lora',serif;}
-.stat-label{font-size:9px;color:#888;margin-top:2px;text-transform:uppercase;letter-spacing:0.08em;}
-.finding{margin-bottom:10px;}
-.finding-label{font-size:9px;font-weight:600;color:#2a7a50;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
-.finding p{font-size:12px;color:#444;line-height:1.6;}
-.hotspots{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
-.hotspot-item{background:#f5f3ee;border-left:3px solid #2a7a50;border-radius:0 6px 6px 0;padding:7px 10px;font-size:11px;color:#333;display:flex;align-items:center;gap:8px;}
-.hotspot-item .dot{width:8px;height:8px;border-radius:50%;background:#2a7a50;flex-shrink:0;}
-.cite{font-size:9px;color:#bbb;font-style:italic;margin-top:12px;text-align:right;}
+html,body{background:#e9e7da;font-family:'Inter',sans-serif;color:#1a1a18;padding:1.5rem 1.5rem 2rem;}
+
+.section-label{font-size:10px;font-weight:600;letter-spacing:0.18em;color:#5a7a5a;text-transform:uppercase;margin-bottom:10px;}
+
+.big-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.5rem;}
+.big-stat{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:14px 16px;text-align:center;}
+.big-stat .num{font-family:'Lora',serif;font-size:26px;font-weight:600;color:#2a7a50;line-height:1;}
+.big-stat .unit{font-size:11px;color:#2a7a50;font-weight:500;margin-bottom:6px;}
+.big-stat .desc{font-size:10px;color:#888;line-height:1.4;}
+
+.divider{height:1px;background:rgba(0,0,0,0.08);margin:1.2rem 0;}
+
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:1.2rem;}
+.tech-card{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:12px 14px;}
+.tech-card-head{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.tech-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.tech-card-head h3{font-size:11.5px;font-weight:600;color:#1a1a18;}
+.tech-card p{font-size:10.5px;color:#666;line-height:1.55;}
+
+.career-section{margin-bottom:1.2rem;}
+.career-section h3{font-family:'Lora',serif;font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:10px;}
+.career-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.career-card{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:10px;padding:10px 12px;}
+.career-title{font-size:10.5px;font-weight:600;color:#1a1a18;margin-bottom:4px;}
+.career-salary{font-size:11px;font-weight:600;color:#2a7a50;margin-bottom:4px;}
+.career-desc{font-size:9.5px;color:#888;line-height:1.45;}
+.career-tag{display:inline-block;font-size:8.5px;padding:1px 6px;border-radius:3px;background:#e8f2ec;color:#2a5a3a;border:1px solid #c4ddc9;margin-top:5px;}
+
+.cta-box{background:#2a7a50;border-radius:10px;padding:14px 18px;color:#fff;}
+.cta-box h3{font-family:'Lora',serif;font-size:14px;font-weight:600;margin-bottom:6px;}
+.cta-box p{font-size:11px;line-height:1.6;opacity:0.9;}
+
+.source{font-size:9px;color:#bbb;font-style:italic;margin-top:10px;text-align:right;}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="card-top">
-    <div class="bee">🐝</div>
-    <div class="card-top-text">
-      <h2>Honeybee Observation Hotspots</h2>
-      <p>Full Study Period 2014 to 2024 · San Gabriel Valley</p>
-    </div>
+
+<div class="section-label">Where conservation GIS is going</div>
+
+<div class="big-stat-row">
+  <div class="big-stat">
+    <div class="num">$37B</div>
+    <div class="unit">by 2033</div>
+    <div class="desc">Global GIS market size, up from $14.4B in 2024</div>
   </div>
-  <div class="card-body">
-    <div class="stat-row">
-      <div class="stat"><div class="stat-num">6,370</div><div class="stat-label">Observations</div></div>
-      <div class="stat"><div class="stat-num">10</div><div class="stat-label">Years of data</div></div>
-      <div class="stat"><div class="stat-num">99%</div><div class="stat-label">Confidence clusters</div></div>
-    </div>
-    <div class="finding">
-      <div class="finding-label">What the map shows</div>
-      <p>Every statistically significant cluster aligns with a named managed green space. The eastern valley where development grew most has no significant clustering in either time period.</p>
-    </div>
-    <div class="hotspots">
-      <div class="hotspot-item"><div class="dot"></div>Arroyo Seco corridor and Eaton Canyon — Pasadena and Altadena</div>
-      <div class="hotspot-item"><div class="dot"></div>LA County Arboretum and Botanic Garden — Arcadia</div>
-      <div class="hotspot-item"><div class="dot"></div>California Botanic Garden — Claremont</div>
-    </div>
-    <div class="cite">Campbell et al., 2023</div>
+  <div class="big-stat">
+    <div class="num">11%</div>
+    <div class="unit">annual growth</div>
+    <div class="desc">Compound annual growth rate through 2033</div>
+  </div>
+  <div class="big-stat">
+    <div class="num">14,000+</div>
+    <div class="unit">open jobs</div>
+    <div class="desc">Active GIS job postings on Indeed alone as of 2026</div>
   </div>
 </div>
+
+<div class="divider"></div>
+
+<div class="tech-grid">
+  <div class="tech-card">
+    <div class="tech-card-head">
+      <div class="tech-icon" style="background:#e8f2ec;">🤖</div>
+      <h3>GeoAI and machine learning</h3>
+    </div>
+    <p>AI models now classify land cover from satellite imagery automatically, identify species from camera trap photos, and predict habitat corridor locations before development closes them off. The GeoAI market is growing at 31% annually.</p>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-head">
+      <div class="tech-icon" style="background:#e6f1fb;">🛸</div>
+      <h3>Drones and LiDAR</h3>
+    </div>
+    <p>Drone imagery and LiDAR now enable centimeter resolution habitat mapping at a fraction of the cost of traditional aerial surveys. Conservation teams are using these tools to monitor restoration projects and detect invasive species in real time.</p>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-head">
+      <div class="tech-icon" style="background:#faeeda;">☁️</div>
+      <h3>Cloud GIS platforms</h3>
+    </div>
+    <p>ArcGIS Online and Google Earth Engine removed the need for expensive hardware. A student with a free account can now run analysis that used to require weeks of desktop processing. The barrier to doing real conservation GIS has never been lower.</p>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-head">
+      <div class="tech-icon" style="background:#f0edff;">🌿</div>
+      <h3>Citizen science at scale</h3>
+    </div>
+    <p>iNaturalist now has over 200 million observations. GBIF has over 2 billion georeferenced records. These platforms are feeding live data into conservation models in real time and making spatial biodiversity analysis accessible to anyone.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="career-section">
+  <h3>If you study GIS or geography, here is where you land</h3>
+  <div class="career-grid">
+    <div class="career-card">
+      <div class="career-title">GIS Analyst</div>
+      <div class="career-salary">$75,000 median</div>
+      <div class="career-desc">Spatial data analysis, map production, database management for government, environmental orgs, and private sector.</div>
+      <span class="career-tag">Entry level available</span>
+    </div>
+    <div class="career-card">
+      <div class="career-title">Environmental GIS Specialist</div>
+      <div class="career-salary">$83,720 median</div>
+      <div class="career-desc">Habitat modeling, environmental impact assessment, conservation planning. 7% job growth projected through 2030.</div>
+      <span class="career-tag">Conservation focus</span>
+    </div>
+    <div class="career-card">
+      <div class="career-title">Cartographer</div>
+      <div class="career-salary">$78,380 median</div>
+      <div class="career-desc">Map design, spatial visualization, LiDAR integration. Growing 6% faster than average for all occupations.</div>
+      <span class="career-tag">BLS 2024 data</span>
+    </div>
+    <div class="career-card">
+      <div class="career-title">Urban and Regional Planner</div>
+      <div class="career-salary">$83,720 median</div>
+      <div class="career-desc">Land use planning, infrastructure, smart city development. GIS is now a core requirement for most planning positions.</div>
+      <span class="career-tag">Government and private</span>
+    </div>
+    <div class="career-card">
+      <div class="career-title">GIS Developer</div>
+      <div class="career-salary">$100,000+</div>
+      <div class="career-desc">Custom web GIS applications, API development, spatial data pipelines. Python and JavaScript are the core skills. 15% growth projected.</div>
+      <span class="career-tag">Highest ceiling</span>
+    </div>
+    <div class="career-card">
+      <div class="career-title">Geospatial Data Scientist</div>
+      <div class="career-salary">$100,000+</div>
+      <div class="career-desc">Machine learning applied to spatial data, GeoAI, predictive modeling. The fastest growing and most in demand GIS specialization right now.</div>
+      <span class="career-tag">GeoAI focus</span>
+    </div>
+  </div>
+</div>
+
+<div class="cta-box">
+  <h3>The tools are here. The jobs are here. The data is free.</h3>
+  <p>iNaturalist is free. The National Land Cover Database is free. ArcGIS Online has a public account anyone can create today. The only thing conservation GIS requires is a question worth asking and the willingness to map it. This project showed what that looks like at the most basic level. Imagine what it looks like at scale — in your career, in your community, or anywhere a location problem still does not have an answer.</p>
+</div>
+
+<div class="source">Sources: IMARC Group 2024, BLS Occupational Outlook Handbook 2024, GIS Jobs Report 2026, URISA Geospatial Professional Network 2025</div>
+
 </body>
 </html>
